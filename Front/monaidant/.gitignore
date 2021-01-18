@@ -1,8 +1,5 @@
-node_modules
-package-lock.json
-MyAuthentificationPlatform_V3.pdf
-
 .DS_Store
+node_modules
 /dist
 
 
