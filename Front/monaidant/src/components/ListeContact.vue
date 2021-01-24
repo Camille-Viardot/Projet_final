@@ -3,7 +3,9 @@
     <b-list-group v-for="mesContacts in mesContacts" :key="mesContacts.id">
       <p class="listContact">
         Name: {{ mesContacts.name }} <br />
-        Email: {{ mesContacts.email }}
+        Prénom: {{mesContacts.prenom}} <br />
+        Email: {{ mesContacts.email }} <br />
+        Téléphone: {{mesContacts.telephone}}
       </p>
     </b-list-group>
   </div>
