@@ -1,6 +1,5 @@
 <template>
   <div>
-      <Deconnexion />
     <div class="about">
       <b-card no-body>
         <b-tabs pills card>
@@ -15,14 +14,12 @@
 <script>
 import ListeContact from '../components/ListeContact'
 import AddContact from '../components/AddContact'
-import Deconnexion from '../components/Deconnexion'
 
 export default {
   name: 'PageContact',
   components: {
     ListeContact,
-    AddContact,
-    Deconnexion
+    AddContact
   }
 }
 </script>

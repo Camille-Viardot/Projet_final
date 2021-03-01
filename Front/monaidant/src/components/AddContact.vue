@@ -108,12 +108,10 @@ export default {
           prenom: this.prenom,
           telephone: this.telephone,
           email: this.email,
-          user_affiliate_user: this.getPayload.id
-            ? this.getPayload.id
-            : this.getPayload.user_affiliate,
-          user_affiliate_aider: this.getPayload.id
-            ? this.getPayload.id
-            : this.getPayload.user_affiliate
+          user_affiliate_user:
+            this.getPayload.id_user || this.getPayload.id_aider,
+          user_affiliate_aider:
+            this.getPayload.id_user || this.getPayload.id_aider
         }
         console.log(newContact)
         axios

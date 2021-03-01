@@ -1,13 +1,21 @@
 <template>
-  <div class="affichage">
-    <b-list-group v-for="mesContacts in mesContacts" :key="mesContacts.id">
-      <p class="listContact">
-        Name: {{ mesContacts.name }} <br />
-        Prénom: {{mesContacts.prenom}} <br />
-        Email: {{ mesContacts.email }} <br />
-        Téléphone: {{mesContacts.telephone}}
-      </p>
-    </b-list-group>
+  <div class="contenu">
+    <div class="affichage">
+      <b-list-group
+        v-for="mesContacts in mesContacts"
+        :key="mesContacts.id_user || mesContacts.user_affiliate"
+      >
+        <ul class="listContact">
+          <li><strong>Name</strong>: {{ mesContacts.nom }}</li>
+          <li><strong>Prénom</strong>: {{ mesContacts.prenom }}</li>
+          <li><strong>Email</strong>: {{ mesContacts.email }}</li>
+          <li><strong>Téléphone</strong>: {{ mesContacts.telephone }}</li>
+        </ul>
+      </b-list-group>
+    </div>
+    <b-button size="lg" variant="primary" v-on:click="pageprofil()"
+      >Retour profil</b-button
+    >
   </div>
 </template>
 
@@ -24,10 +32,17 @@ export default {
   },
   computed: { ...mapGetters(['getPayload']), ...mapGetters(['getContact']) },
 
-  methods: {},
+  methods: {
+    pageprofil () {
+      this.$router.push('/dashboard')
+    }
+  },
   mounted () {
     axios
-      .get(`http://localhost:3000/getcontacts/${this.getPayload.id}`)
+      .get(
+        `http://localhost:3000/getcontacts/${this.getPayload.id_user ||
+          this.getPayload.user_affiliate}`
+      )
       .then(response => {
         this.mesContacts = response.data
       })
@@ -38,13 +53,13 @@ export default {
 <style>
 .affichage {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  width: 100em;
 }
 
 .listContact {
   border: 1px solid black;
-  padding: 10px;
+  padding: 15px 15px 15px 25px;
   margin: 10px;
+  text-align: left;
 }
 </style>

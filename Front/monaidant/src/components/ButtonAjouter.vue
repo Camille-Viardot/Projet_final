@@ -1,14 +1,14 @@
 <template>
   <b-navbar type="dark" variant="dark">
-    <b-navbar-brand
-      >Bienvenue sur votre page personnelle
-      {{ getPayload.prenom }}</b-navbar-brand
-    >
-
     <b-navbar-nav class="ml-auto">
       <b-nav-form>
-        <buttonAjouter v-if="getPayload.id_user" />
-        <b-button variant="danger" v-on:click="signOut()">Deconnexion</b-button>
+        <b-button
+          class="buttonAjouter"
+          variant="secondary"
+          v-on:click="pageInscription()"
+          >Ajouter compte</b-button
+        >
+        <br />
       </b-nav-form>
     </b-navbar-nav>
   </b-navbar>
@@ -16,24 +16,16 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import buttonAjouter from './ButtonAjouter'
 
 export default {
   name: 'Deconnexion',
-  components: {
-    buttonAjouter
-  },
+  components: {},
 
   computed: {
     ...mapGetters(['getPayload'])
   },
 
   methods: {
-    signOut () {
-      this.$store.dispatch('deleteToken')
-      this.$router.push('/')
-    },
-
     pageInscription () {
       this.$router.push('/creeraider')
     }

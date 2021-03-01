@@ -1,8 +1,8 @@
 <template>
   <div>
-    <Deconnexion />
-    <p>Veuillez cliquer sur l'image pour accéder aux diffentes pages</p>
-    <div class="content">
+    <h1>Veuillez cliquer sur les images pour accéder aux diffentes pages</h1>
+    <br />
+    <div class="content1">
       <div class="phoneBook">
         <h1>Repertoire téléphonique</h1>
         <router-link to="/pagecontact"
@@ -28,39 +28,35 @@
 </template>
 
 <script>
-import Deconnexion from '../components/Deconnexion'
 export default {
   name: 'Dashboard',
-  components: {
-    Deconnexion
-  }
+  components: {}
 }
 </script>
 
 <style>
-.content {
+.content1 {
   display: flex;
-  margin: auto;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 .phoneBook {
-  margin: auto;
-  flex-wrap: wrap;
-
+  margin-left: 15px;
+  margin-right: 15px;
 }
 
 .calendrier {
-  margin: auto;
-  flex-wrap: wrap;
-
+  margin-left: 15px;
+  margin-right: 15px;
 }
 .lien {
-  margin: auto;
-  flex-wrap: wrap;
-
+  margin-left: 15px;
+  margin-right: 15px;
 }
 
 img {
   width: 40em;
   border-radius: 25px;
 }
+
 </style>

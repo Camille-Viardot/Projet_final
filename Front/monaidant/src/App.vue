@@ -1,8 +1,21 @@
 <template>
   <div id="app">
-    <router-view/>
+    <Deconnexion v-if="getPayload" />
+    <router-view />
   </div>
 </template>
+
+<script>
+import Deconnexion from '../src/components/Deconnexion'
+import { mapGetters } from 'vuex'
+
+export default {
+  components: {
+    Deconnexion
+  },
+  computed: { ...mapGetters(['getPayload']) }
+}
+</script>
 
 <style>
 #app {
@@ -24,5 +37,14 @@
 
 #nav a.router-link-exact-active {
   color: #42b983;
+}
+
+@font-face {
+  font-family: 'Luciole';
+  src: url('/Font/Luciole-Regular.tff') format('ttf');
+}
+
+* {
+  font-family: Luciole;
 }
 </style>

@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Dashboard from '../views/Dashboard.vue'
 import PageContact from '../components/PageContact'
+import CreerAider from '../components/CreerAider'
 
 Vue.use(VueRouter)
 
@@ -25,6 +26,14 @@ const router = new VueRouter({
       path: '/pagecontact',
       name: 'PageContact',
       component: PageContact,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: '/creeraider',
+      name: 'CreerAider',
+      component: CreerAider,
       meta: {
         requiresAuth: true
       }

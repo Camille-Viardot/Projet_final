@@ -31,6 +31,10 @@ export default new Vuex.Store({
       state.allToken = token
     },
 
+    RECUP_TOKEN_SECONDAIRE (state, token) {
+      state.allToken = token
+    },
+
     DELETE_TOKEN (state) {
       state.allToken = null
     }
@@ -39,6 +43,11 @@ export default new Vuex.Store({
     recupToken (context, token) {
       console.log(token)
       context.commit('RECUP_TOKEN', token)
+    },
+
+    recupTokenSecondaire (context, token) {
+      console.log(token)
+      context.commit('RECUP_TOKEN_SECONDAIRE', token)
     },
 
     deleteToken (context) {

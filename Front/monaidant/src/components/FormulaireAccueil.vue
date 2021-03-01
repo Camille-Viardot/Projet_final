@@ -3,7 +3,8 @@
     <b-card no-body>
       <b-tabs pills card>
         <b-tab title="Inscription" active> <Enregistrement /> </b-tab>
-        <b-tab title="Connexion"> <Connexion /> </b-tab>
+        <b-tab title="Connexion principal"> <Connexion /> </b-tab>
+        <b-tab title="Connexion secondaire"> <ConnexionSecondaire /> </b-tab>
       </b-tabs>
     </b-card>
   </div>
@@ -12,12 +13,14 @@
 <script>
 import Enregistrement from './Enregistrement'
 import Connexion from './Connexion'
+import ConnexionSecondaire from './ConnexionSecondaire'
 
 export default {
   name: 'FormulaireAccueil',
   components: {
     Enregistrement,
-    Connexion
+    Connexion,
+    ConnexionSecondaire
   }
 }
 </script>
@@ -35,7 +38,6 @@ export default {
 }
 
 .leInput {
-  font-family: 'Lato', sans-serif;
   font-size: 25px;
   color: black;
   line-height: 2.375rem;
