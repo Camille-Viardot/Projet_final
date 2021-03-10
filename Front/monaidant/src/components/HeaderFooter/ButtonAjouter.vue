@@ -34,7 +34,4 @@ export default {
 </script>
 
 <style>
-.buttonAjouter {
-  margin-right: 20px;
-}
 </style>

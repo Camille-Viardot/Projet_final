@@ -1,10 +1,11 @@
 <template>
-  <div>
-    <h1>Veuillez cliquer sur les images pour accéder aux diffentes pages</h1>
+  <div class="contentAll">
     <br />
-    <div class="content1">
+    <h1>Vous pouvez cliquer sur les images pour accéder aux différentes pages</h1>
+    <br />
+    <div class="contentLogo">
       <div class="phoneBook">
-        <h1>Repertoire téléphonique</h1>
+        <h1>Répertoire téléphonique</h1>
         <router-link to="/pagecontact"
           ><img src="../assets/Images/phone_book.png"
         /></router-link>
@@ -18,9 +19,9 @@
         /></a>
       </div>
       <div class="lien">
-        <h1>Liens utile</h1>
-        <router-link to="/pagecontact"
-          ><img src="../assets/Images/phone_book.png"
+        <h1>Liens utiles</h1>
+        <router-link to="/pageliens"
+          ><img src="../assets/Images/image_site2.png"
         /></router-link>
       </div>
     </div>
@@ -35,10 +36,21 @@ export default {
 </script>
 
 <style>
-.content1 {
+.contentAll {
+  margin-left: auto;
+  margin-right: auto;
+  background-color: rgb(183, 206, 235);
+}
+.contentLogo {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  margin: auto;
+  max-width: 60%;
+  padding: 25px;
+  border: 2px solid #7cacdf;
+  background-color: #aad6ee;
+  border-radius: 10px;
 }
 .phoneBook {
   margin-left: 15px;
@@ -55,8 +67,7 @@ export default {
 }
 
 img {
-  width: 40em;
+  width: 20em;
   border-radius: 25px;
 }
-
 </style>

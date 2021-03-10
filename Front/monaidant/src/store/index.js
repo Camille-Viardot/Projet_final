@@ -8,7 +8,8 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     allToken: null,
-    allContacts: null
+    allContacts: null,
+    allLiens: null
   },
 
   getters: {

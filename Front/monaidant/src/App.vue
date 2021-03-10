@@ -1,17 +1,20 @@
 <template>
   <div id="app">
-    <Deconnexion v-if="getPayload" />
+    <Nav v-if="getPayload" />
     <router-view />
+    <Footer />
   </div>
 </template>
 
 <script>
-import Deconnexion from '../src/components/Deconnexion'
+import Nav from '../src/components/HeaderFooter/Nav'
+import Footer from '../src/components/HeaderFooter/Footer'
 import { mapGetters } from 'vuex'
 
 export default {
   components: {
-    Deconnexion
+    Nav,
+    Footer
   },
   computed: { ...mapGetters(['getPayload']) }
 }
@@ -19,9 +22,6 @@ export default {
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
 }
@@ -39,12 +39,4 @@ export default {
   color: #42b983;
 }
 
-@font-face {
-  font-family: 'Luciole';
-  src: url('/Font/Luciole-Regular.tff') format('ttf');
-}
-
-* {
-  font-family: Luciole;
-}
 </style>

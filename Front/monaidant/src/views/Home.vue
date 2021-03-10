@@ -1,22 +1,35 @@
 <template>
-  <b-jumbotron>
-    <template v-slot:header> Mon Aidant Ligne </template>
-
-    <template v-slot:lead> Bienvenue sur Mon Aidant Ligne. </template>
-
-    <hr class="my-4" />
-
+  <div class="containerAccueil">
+    <mdb-jumbotron fluid class="mb-5" style="background-color: #aad6ee;">
+      <mdb-container>
+        <h2 class="display-3">Mon Aidant Ligne</h2>
+        <p class="lead">
+          Bienvenue sur Mon Aidant Ligne
+        </p>
+      </mdb-container> </mdb-jumbotron
+    >
     <FormulaireAccueil />
-  </b-jumbotron>
+  </div>
 </template>
 
 <script>
 import FormulaireAccueil from '../components/FormulaireAccueil'
+import { mdbJumbotron, mdbContainer } from 'mdbvue'
 
 export default {
   name: 'Home',
   components: {
-    FormulaireAccueil
+    FormulaireAccueil,
+
+    mdbJumbotron,
+    mdbContainer
   }
 }
 </script>
+
+<style>
+.containerAccueil {
+  background-color: rgb(183, 206, 235);
+}
+
+</style>

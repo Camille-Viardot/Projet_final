@@ -2,8 +2,10 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Dashboard from '../views/Dashboard.vue'
-import PageContact from '../components/PageContact'
+import PageContact from '../components/Contact/PageContact'
 import CreerAider from '../components/CreerAider'
+import PageLiens from '../components/Liens/PageLiens'
+import UpdateContact from '../components/Contact/UpdateContact'
 
 Vue.use(VueRouter)
 
@@ -14,6 +16,7 @@ const router = new VueRouter({
       name: 'Home',
       component: Home
     },
+
     {
       path: '/dashboard',
       name: 'Dashboard',
@@ -22,6 +25,7 @@ const router = new VueRouter({
         requiresAuth: true
       }
     },
+
     {
       path: '/pagecontact',
       name: 'PageContact',
@@ -30,10 +34,29 @@ const router = new VueRouter({
         requiresAuth: true
       }
     },
+
     {
       path: '/creeraider',
       name: 'CreerAider',
       component: CreerAider,
+      meta: {
+        requiresAuth: true
+      }
+    },
+
+    {
+      path: '/modifiercontact',
+      name: 'UpdateContact',
+      component: UpdateContact,
+      meta: {
+        requiresAuth: true
+      }
+    },
+
+    {
+      path: '/pageliens',
+      name: 'PageLiens',
+      component: PageLiens,
       meta: {
         requiresAuth: true
       }

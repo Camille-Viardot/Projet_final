@@ -5,63 +5,78 @@
     <h3 v-else-if="message == 'valide'">
       Bravo, vous êtes maintenant enregistré !
     </h3>
+    <form>
+      <p class="h4 text-center mb-4">Inscription</p>
+      <div class="grey-text">
+        <div class="form-group" :class="{ 'form-group--error': $v.nom.$error }">
+          <mdb-input label="Nom" icon="user" type="text" v-model="nom" />
+          <p class="error" v-if="!$v.nom.required">Nom requis</p>
+          <p class="error" v-if="!$v.nom.minLength">
+            Votre Nom doit contenir minimum
+            {{ $v.nom.$params.minLength.min }} caractères.
+          </p>
+        </div>
+        <div
+          class="form-group"
+          :class="{ 'form-group--error': $v.prenom.$error }"
+        >
+          <mdb-input label="Prénom" icon="user" type="text" v-model="prenom" />
+          <p class="error" v-if="!$v.prenom.required">Prénom requis</p>
+          <p class="error" v-if="!$v.prenom.minLength">
+            Votre Prénom doit contenir minimum
+            {{ $v.prenom.$params.minLength.min }} caractères.
+          </p>
+        </div>
+        <div
+          class="form-group"
+          :class="{ 'form-group--error': $v.email.$error }"
+        >
+          <mdb-input
+            label="Adresse email"
+            icon="envelope"
+            type="email"
+            v-model="email"
+          />
+          <p class="error" v-if="!$v.email.required">Adresse email requise</p>
+          <p class="error" v-if="!$v.email.email">
+            Votre adresse email n'est pas valide.
+          </p>
+        </div>
 
-    <div class="form-group" :class="{ 'form-group--error': $v.nom.$error }">
-      <label for="text-nom">Nom</label><br />
-      <input v-model="nom" class="leInput" placeholder="Nom" />
-      <p class="error" v-if="!$v.nom.required">Nom requis</p>
-      <p class="error" v-if="!$v.nom.minLength">
-        Votre Nom doit contenir minimum
-        {{ $v.nom.$params.minLength.min }} caractères.
-      </p>
-    </div>
-    <br />
-
-    <div class="form-group" :class="{ 'form-group--error': $v.prenom.$error }">
-      <label for="text-prenom">Prénom</label><br />
-      <input v-model="prenom" class="leInput" placeholder="Prénom" />
-      <p class="error" v-if="!$v.prenom.required">Prénom requis</p>
-      <p class="error" v-if="!$v.prenom.minLength">
-        Votre Prénom doit contenir minimum
-        {{ $v.prenom.$params.minLength.min }} caractères.
-      </p>
-    </div>
-    <br />
-
-    <div class="form-group" :class="{ 'form-group--error': $v.email.$error }">
-      <label for="text-email">Email</label><br />
-      <input v-model="email" class="leInput" placeholder=" Adresse email" />
-      <p class="error" v-if="!$v.email.required">Adresse email requise</p>
-      <p class="error" v-if="!$v.email.email">
-        Votre adresse email n'est pas valide.
-      </p>
-    </div>
-    <br />
-
-    <div
-      class="form-group"
-      :class="{ 'form-group--error': $v.password.$error }"
-    >
-      <label for="text-email">Password</label><br />
-      <input v-model="password" class="leInput" placeholder="Mot de passe" />
-      <p class="error" v-if="!$v.password.required">Mot de passe requis</p>
-      <p class="error" v-if="!$v.password.minLength">
-        Votre mot de passe dois contenir minimum
-        {{ $v.password.$params.minLength.min }} caractères.
-      </p>
-    </div>
-
-    <b-button size="lg" variant="success" v-on:click="postUsers()"
-      >S'incrire</b-button
-    >
+        <div
+          class="form-group"
+          :class="{ 'form-group--error': $v.password.$error }"
+        >
+          <mdb-input
+            label="Mot de passe"
+            icon="lock"
+            type="text"
+            v-model="password"
+          />
+          <p class="error" v-if="!$v.password.required">Mot de passe requis</p>
+          <p class="error" v-if="!$v.password.minLength">
+            Votre mot de passe dois contenir minimum
+            {{ $v.password.$params.minLength.min }} caractères.
+          </p>
+        </div>
+      </div>
+      <div class="text-center">
+        <mdb-btn color="success" v-on:click="postUsers()">S'inscrire</mdb-btn>
+      </div>
+    </form>
   </div>
 </template>
 
 <script>
 import axios from 'axios'
 import { required, minLength, email } from 'vuelidate/lib/validators'
+import { mdbInput, mdbBtn } from 'mdbvue'
 
 export default {
+  components: {
+    mdbInput,
+    mdbBtn
+  },
   data () {
     return {
       nom: '',
@@ -86,7 +101,7 @@ export default {
     },
     password: {
       required,
-      minLength: minLength(4)
+      minLength: minLength(8)
     }
   },
 
@@ -129,5 +144,4 @@ export default {
 }
 </script>
 
-<style>
-</style>
+<style></style>
